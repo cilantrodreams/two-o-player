@@ -15,12 +15,6 @@ class Player
 
   attr_writer :lives
 
-
 end
-
-
-
-
-
 
 
