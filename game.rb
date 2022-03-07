@@ -13,7 +13,7 @@ class Game
       current_problem = Problem.new(rand(1..20), rand(1..20))
 
       # print the current player's lives
-      puts "#{player.name} you have #{player.lives} lives remaining. Answer wisely."
+      puts "#{player.name} you have #{player_lives(player.lives)} remaining. Answer wisely."
       
       # print the current player's name and problem string
       puts "#{player.name}: #{current_problem.read_problem}"
@@ -48,7 +48,8 @@ class Game
         @is_over = true # ends game after first loop
       end
       # switch current player
-      @active_player = (@active_player + 1) % 2
+      # @active_player = (@active_player + 1) % 2
+      switch_player
 
       # new turn line break
       puts "----- NEW TURN -----"
@@ -62,6 +63,9 @@ class Game
 
   private
 
+  def switch_player
+    @active_player = (@active_player + 1) % 2
+  end
 
   # string formatter for plurality on word 'lives'
   def player_lives(count)
