@@ -20,8 +20,15 @@ class Game
 
 
       # take input from the console
-      print "> "
-      answer = $stdin.gets.chomp.to_i
+      answer = 0
+      loop do
+        print "> "
+        answer = $stdin.gets.chomp.to_i
+        if answer != 0
+          break
+        end
+        puts "You entered an invalid answer. Please try again"
+      end
 
       # compare the attempt to the solution
       if answer != current_problem.solution
